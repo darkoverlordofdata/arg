@@ -1,0 +1,36 @@
+#!/usr/bin/env coffee
+#+--------------------------------------------------------------------+
+#| Arg!
+#+--------------------------------------------------------------------+
+#| Copyright DarkOverlordOfData (c) 2014
+#+--------------------------------------------------------------------+
+#|
+#| 'Tis file be part 'o Arg
+#|
+#| Arg! be free software; ye can copy, modify, 'n distribute 
+#| it under th' terms 'o th' MIT License
+#|
+#+--------------------------------------------------------------------+
+#
+arg = require("../lib/arg")
+
+usage = """
+Usage:
+  arg matey -p <words to translate>
+  arg python <words to argue>
+
+Options:
+  -p  [--pirate]    # talk like a pirate
+
+"""
+switch process.argv[2]
+
+  when 'matey' then arg.matey process.argv.slice(3)...
+
+  when 'python' then arg.python process.argv.slice(3)...
+
+  when '--help' then console.log usage
+
+  when '-h' then console.log usage
+
+  else console.log usage
